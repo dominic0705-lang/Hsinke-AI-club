@@ -1,1 +1,0 @@
-# Hsinke-AI-club
