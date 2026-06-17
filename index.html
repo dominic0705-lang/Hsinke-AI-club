@@ -24,7 +24,7 @@
             --text-secondary: #64748B; 
             --border-color: #E2E8F0;
             
-            --navbar-bg: rgba(255, 255, 255, 0.65); 
+            --navbar-bg: rgba(255, 255, 255, 0.85); 
             --modal-bg: rgba(255, 255, 255, 0.95);  
             --card-backdrop: none;
             
@@ -39,7 +39,7 @@
             --radius-btn: 8px; 
             
             --awning-bg: #F8FAFC;
-            --marquee-bg: rgba(255, 255, 255, 0.65);
+            --marquee-bg: #FFFFFF;
             
             --transition-bezier: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
             --card-border-width: 1px;
@@ -48,14 +48,13 @@
 
         /* ==================================================
            商業級 10 種風格重塑
-           注意：將 --navbar-bg 調為半透明，讓全域玻璃擬態生效
            ================================================== */
         /* 【風格 1】Apple 極簡玻璃 */
         body.theme-apple-glass, .booth-card.theme-apple-glass {
             --bg-base: #F5F5F7; --bg-surface: rgba(255, 255, 255, 0.7);
             --color-accent: #000000; --color-accent-hover: #333333; --color-interactive: #E2E8F0;
             --text-main: #1D1D1F; --text-secondary: #52525B; --border-color: rgba(0, 0, 0, 0.1);
-            --navbar-bg: rgba(245, 245, 247, 0.65); --modal-bg: rgba(255, 255, 255, 0.85);
+            --navbar-bg: rgba(245, 245, 247, 0.72); --modal-bg: rgba(255, 255, 255, 0.85);
             --font-sans: -apple-system, BlinkMacSystemFont, 'Noto Sans TC', sans-serif;
             --font-special: -apple-system, BlinkMacSystemFont, 'Noto Sans TC', sans-serif;
             --shadow-premium: 0 8px 32px rgba(0, 0, 0, 0.04); --shadow-premium-hover: 0 12px 48px rgba(0, 0, 0, 0.08);
@@ -70,7 +69,7 @@
             --bg-base: #0B0F19; --bg-surface: #111827;
             --color-accent: #38BDF8; --color-accent-hover: #0EA5E9; --color-interactive: #1E293B;
             --text-main: #F8FAFC; --text-secondary: #94A3B8; --border-color: #1E293B;
-            --navbar-bg: rgba(11, 15, 25, 0.7); --modal-bg: #111827;
+            --navbar-bg: rgba(11, 15, 25, 0.9); --modal-bg: #111827;
             --font-sans: 'Space Grotesk', 'Noto Sans TC', sans-serif; --font-special: 'Space Grotesk', sans-serif;
             --shadow-premium: 0 4px 20px rgba(0, 0, 0, 0.4); --shadow-premium-hover: 0 0 0 1px #38BDF8, 0 10px 40px rgba(56, 189, 248, 0.15);
             --radius-lg: 12px; --radius-btn: 6px; --card-border-width: 1px; --awning-bg: #1E293B;
@@ -84,7 +83,7 @@
             --bg-base: #FAF9F6; --bg-surface: #FFFFFF;
             --color-accent: #B45309; --color-accent-hover: #92400E; --color-interactive: #FEF3C7;
             --text-main: #1C1917; --text-secondary: #57534E; --border-color: #E7E5E4;
-            --navbar-bg: rgba(250, 249, 246, 0.75); --modal-bg: rgba(255, 255, 255, 0.95);
+            --navbar-bg: rgba(250, 249, 246, 0.95); --modal-bg: #FFFFFF;
             --font-sans: 'Noto Sans TC', serif; --font-special: 'Cinzel', serif;
             --shadow-premium: 0 10px 30px rgba(0,0,0,0.03); --shadow-premium-hover: 0 20px 40px rgba(180,83,9,0.08);
             --radius-lg: 0px; --radius-btn: 0px; --card-border-width: 1px; --awning-bg: #FFFFFF;
@@ -96,7 +95,7 @@
             --bg-base: #E5E5E5; --bg-surface: #FFFFFF;
             --color-accent: #FF3366; --color-accent-hover: #CC0033; --color-interactive: #E5E5E5;
             --text-main: #000000; --text-secondary: #404040; --border-color: #000000;
-            --navbar-bg: rgba(229, 229, 229, 0.75); --modal-bg: rgba(255, 255, 255, 0.95);
+            --navbar-bg: rgba(229, 229, 229, 0.95); --modal-bg: #FFFFFF;
             --font-sans: 'Noto Sans TC', sans-serif; --font-special: 'Oswald', sans-serif;
             --shadow-premium: 8px 8px 0px #000000; --shadow-premium-hover: 12px 12px 0px #FF3366;
             --radius-lg: 0px; --radius-md: 0px; --radius-btn: 0px;
@@ -111,7 +110,7 @@
             --bg-base: #F4F1EB; --bg-surface: #FCFBF9;
             --color-accent: #2563EB; --color-accent-hover: #1D4ED8; --color-interactive: #DBEAFE;
             --text-main: #333333; --text-secondary: #666666; --border-color: #D1D5DB;
-            --navbar-bg: rgba(244, 241, 235, 0.75); --modal-bg: rgba(252, 251, 249, 0.95);
+            --navbar-bg: rgba(244, 241, 235, 0.95); --modal-bg: #FCFBF9;
             --font-sans: 'Noto Sans TC', sans-serif; --font-special: 'Noto Sans TC', serif;
             --shadow-premium: 0 4px 12px rgba(0,0,0,0.02); --shadow-premium-hover: 0 12px 24px rgba(0,0,0,0.06);
             --radius-lg: 8px; --card-border-width: 1px; --awning-bg: transparent;
@@ -123,7 +122,7 @@
             --bg-base: #282828; --bg-surface: #3C3836;
             --color-accent: #B8BB26; --color-accent-hover: #98971A; --color-interactive: #504945;
             --text-main: #EBDBB2; --text-secondary: #D5C4A1; --border-color: #1D2021;
-            --navbar-bg: rgba(40, 40, 40, 0.8); --modal-bg: rgba(60, 56, 54, 0.95);
+            --navbar-bg: rgba(40, 40, 40, 0.95); --modal-bg: #3C3836;
             --font-sans: 'Noto Sans TC', sans-serif; --font-special: 'Press Start 2P', cursive;
             --shadow-premium: 4px 4px 0px rgba(0,0,0,0.5); --shadow-premium-hover: 6px 6px 0px rgba(0,0,0,0.7);
             --radius-lg: 0px; --radius-btn: 0px; --card-border-width: 2px; --awning-bg: #504945;
@@ -136,7 +135,7 @@
             --bg-base: #F8F9FA; --bg-surface: #FFFFFF;
             --color-accent: #7F1D1D; --color-accent-hover: #991B1B; --color-interactive: #FEE2E2;
             --text-main: #3F3F46; --text-secondary: #71717A; --border-color: #E4E4E7;
-            --navbar-bg: rgba(248, 249, 250, 0.75); --modal-bg: rgba(255, 255, 255, 0.95);
+            --navbar-bg: rgba(248, 249, 250, 0.9); --modal-bg: #FFFFFF;
             --font-sans: 'Noto Sans TC', sans-serif; --font-special: 'Noto Sans TC', sans-serif;
             --shadow-premium: 0 2px 8px rgba(0,0,0,0.02); --shadow-premium-hover: 0 8px 24px rgba(0,0,0,0.06);
             --radius-lg: 4px; --radius-btn: 2px; --card-border-width: 1px; --awning-bg: #FFFFFF;
@@ -160,7 +159,7 @@
             --bg-base: #E2D9C8; --bg-surface: #F0EAD6;
             --color-accent: #D9381E; --color-accent-hover: #BC2B14; --color-interactive: #2C3E50;
             --text-main: #1A1A1A; --text-secondary: #4A4A4A; --border-color: #1A1A1A;
-            --navbar-bg: rgba(226, 217, 200, 0.75); --modal-bg: rgba(240, 234, 214, 0.95);
+            --navbar-bg: rgba(226, 217, 200, 0.9); --modal-bg: #F0EAD6;
             --font-sans: 'Noto Sans TC', sans-serif; --font-special: 'Noto Sans TC', sans-serif;
             --shadow-premium: none; --shadow-premium-hover: 8px 8px 0px rgba(0,0,0,0.15);
             --radius-lg: 0px; --radius-btn: 0px; --card-border-width: 2px; --awning-bg: #2C3E50;
@@ -172,7 +171,7 @@
             --bg-base: #E0E5EC; --bg-surface: #E0E5EC;
             --color-accent: #4F46E5; --color-accent-hover: #4338CA; --color-interactive: #D1D5DB;
             --text-main: #374151; --text-secondary: #6B7280; --border-color: transparent;
-            --navbar-bg: rgba(224, 229, 236, 0.7); --modal-bg: rgba(224, 229, 236, 0.95);
+            --navbar-bg: rgba(224, 229, 236, 0.85); --modal-bg: #E0E5EC;
             --font-sans: 'Noto Sans TC', sans-serif; --font-special: 'Noto Sans TC', sans-serif;
             --shadow-premium: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px rgba(255,255,255, 0.5);
             --shadow-premium-hover: 12px 12px 20px rgb(163,177,198,0.7), -12px -12px 20px rgba(255,255,255, 0.6);
@@ -187,7 +186,7 @@
         @keyframes gradient-move { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
         @keyframes stripe-move { 0% { background-position: 0 0; } 100% { background-position: 40px 40px; } }
         @keyframes dot-drift { 0% { background-position: 0 0; } 100% { background-position: 32px 32px; } }
-        @keyframes scanline { 0% { background-position: 0 100%; } 100% { background-position: 0 0; } }
+        @keyframes scanline { 0% { background-position: 0 0; } 100% { background-position: 0 100%; } }
         @keyframes bubble-drift { 0% { background-position: 0% 0%; } 50% { background-position: 100% 100%; } 100% { background-position: 0% 0%; } }
         @keyframes holo-flow { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
 
@@ -213,7 +212,6 @@
 
         /* ==================================================
            1. 網頁基本與排版佈局
-           因為新增了玻璃膠囊跑馬燈，增加頂部留白
            ================================================== */
         * { box-sizing: border-box; margin: 0; padding: 0; transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease; }
 
@@ -223,13 +221,11 @@
             overflow-x: hidden; letter-spacing: 0.05em; line-height: 1.625;
         }
 
-        /* 導覽列：套用全域玻璃特效 */
         .navbar {
-            position: fixed; top: 0; left: 0; right: 0; height: 70px; 
-            background-color: var(--navbar-bg);
-            backdrop-filter: blur(20px) saturate(150%); -webkit-backdrop-filter: blur(20px) saturate(150%);
+            position: fixed; top: 0; left: 0; right: 0; height: 70px; background-color: var(--navbar-bg);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between;
-            padding: 0 5%; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            padding: 0 5%; z-index: 1000;
         }
 
         .navbar-brand { display: flex; align-items: center; gap: 12px; }
@@ -277,9 +273,7 @@
         }
         @keyframes pulse-red { 0% { transform: scale(0.9); opacity: 0.5; } 50% { transform: scale(1.3); opacity: 1; } 100% { transform: scale(0.9); opacity: 0.5; } }
 
-        /* ==================================================
-           【升級】跑馬燈玻璃膠囊 (Floating Glass Pill)
-           ================================================== */
+        /* 新版浮動跑馬燈 */
         .marquee-container {
             position: fixed; top: 85px; left: 50%; transform: translateX(-50%);
             width: 90%; max-width: 900px; height: 42px;
@@ -305,7 +299,6 @@
 
         .hall-container { max-width: 1400px; margin: 0 auto; padding: 20px 5% 30px; width: 100%; flex-grow: 1; }
 
-        /* 篩選標籤區：套用全域玻璃特效 */
         .filter-section {
             background-color: var(--navbar-bg);
             backdrop-filter: blur(20px) saturate(150%); -webkit-backdrop-filter: blur(20px) saturate(150%);
@@ -381,19 +374,8 @@
             border: var(--card-border-width) solid var(--border-color); border-radius: 50%; width: 32px; height: 32px;
             display: flex; align-items: center; justify-content: center; font-size: 1.1rem; box-shadow: var(--shadow-premium);
         }
-        .booth-like-badge {
-            position: absolute; bottom: 12px; right: 12px; z-index: 6; background-color: var(--bg-surface);
-            border: var(--card-border-width) solid var(--border-color); border-radius: 50px; padding: 4px 12px;
-            font-size: 0.8rem; font-weight: bold; display: flex; align-items: center; gap: 6px; cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05); user-select: none; transition: var(--transition-bezier); color: var(--text-main);
-        }
-        .booth-like-badge:active { transform: scale(0.9); }
-        .booth-like-badge.liked { border-color: #ef4444; color: #ef4444; background-color: rgba(239, 68, 68, 0.05); }
 
-        .heart-beat { animation: heartbeat-anim 0.4s ease-in-out; }
-        @keyframes heartbeat-anim { 0% { transform: scale(1); } 30% { transform: scale(1.3); } 60% { transform: scale(1.15); } 100% { transform: scale(1); } }
-
-        .booth-info { padding: 24px; flex-grow: 1; display: flex; flex-direction: column; border-bottom: var(--card-border-width) solid var(--border-color); }
+        .booth-info { padding: 20px 24px; flex-grow: 1; display: flex; flex-direction: column; }
         .booth-title-wrap { margin-bottom: 12px; }
         .booth-title { font-size: 1.25rem; font-weight: 900; color: var(--text-main); margin-bottom: 8px; font-family: var(--font-special); }
         
@@ -406,7 +388,19 @@
 
         .booth-desc { font-size: 0.88rem; color: var(--text-secondary); margin-top: 10px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; }
 
-        .booth-actions { padding: 16px 24px; background-color: rgba(0,0,0,0.02); display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        /* ====== 新增：攤位專屬數據列 (Booth Stats) ====== */
+        .booth-stats {
+            padding: 12px 24px; display: flex; justify-content: space-between; align-items: center;
+            border-top: var(--card-border-width) solid var(--border-color);
+            background: rgba(0,0,0,0.02); font-size: 0.8rem; font-weight: bold; color: var(--text-secondary);
+        }
+        .stat-item { display: flex; align-items: center; gap: 4px; transition: var(--transition-bezier); }
+        .stat-item.clickable { cursor: pointer; }
+        .stat-item.clickable:hover { transform: scale(1.1); color: var(--color-accent); }
+        .heart-beat { animation: heartbeat-anim 0.4s ease-in-out; }
+        @keyframes heartbeat-anim { 0% { transform: scale(1); } 30% { transform: scale(1.3); } 60% { transform: scale(1.15); } 100% { transform: scale(1); } }
+
+        .booth-actions { padding: 16px 24px; background-color: rgba(0,0,0,0.02); display: grid; grid-template-columns: 1fr 1fr; gap: 12px; border-top: var(--card-border-width) solid var(--border-color); }
         .booth-btn {
             padding: 11px 8px; font-size: 0.8rem; font-weight: 700; text-align: center; cursor: pointer;
             border: var(--card-border-width) solid var(--border-color); border-radius: var(--radius-btn);
@@ -508,8 +502,12 @@
         .ai-note-box { background-color: var(--bg-base); border-left: 4px solid var(--color-interactive); padding: 12px 16px; border-radius: 0 var(--radius-md) var(--radius-md) 0; margin-bottom: 15px; }
         .ai-note-title { font-size: 0.9rem; font-weight: bold; color: var(--color-accent); margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
 
+        /* 留言板與星級評分 UI */
         .comment-section { margin-top: 25px; border-top: 1px dashed var(--border-color); padding-top: 20px; }
         .comment-header { font-size: 0.95rem; font-weight: 800; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; color: var(--text-main); }
+        .rating-selector { display: flex; gap: 4px; font-size: 1.4rem; cursor: pointer; color: #cbd5e1; user-select: none; }
+        .rating-selector .star { transition: transform 0.2s, color 0.2s; }
+        .rating-selector .star:hover { transform: scale(1.2); }
         .comment-input-box { display: flex; gap: 8px; margin-bottom: 15px; }
         .comment-input { flex-grow: 1; padding: 10px 14px; font-family: var(--font-sans); font-size: 0.85rem; border: 1px solid var(--border-color); border-radius: var(--radius-btn); background-color: var(--bg-base); color: var(--text-main); outline: none; transition: var(--transition-bezier); }
         .comment-input:focus { border-color: var(--color-accent); background-color: var(--bg-surface); }
@@ -635,8 +633,13 @@
             </div>
         </section>
 
+        <!-- 攤位網格區 -->
         <div class="booth-grid" id="boothExhibitionGrid"></div>
     </main>
+
+    <!-- ==================================================
+       彈出視窗群 (Modals Group)
+       ================================================== -->
 
     <!-- 大轉盤 Modal -->
     <div id="wheelModal">
@@ -678,6 +681,11 @@
 
                 <div class="comment-section">
                     <div class="comment-header">💬 攤位即時留言板</div>
+                    <!-- 星級評分 UI -->
+                    <div class="mb-3 flex items-center">
+                        <span style="font-size: 0.85rem; font-weight: bold; margin-right: 8px; color: var(--text-main);">星級評分:</span>
+                        <div id="gameRating" class="rating-selector"></div>
+                    </div>
                     <div class="comment-input-box">
                         <input type="text" class="comment-input" id="gameCommentInput" placeholder="寫下對社團的讚美或想對攤主說的話...">
                         <button class="btn" style="padding: 6px 14px; font-size: 0.8rem;" onclick="submitComment('game')">送出</button>
@@ -687,7 +695,6 @@
             </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" onclick="closeModal('gameModal')">關閉</button>
-                <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-game" id="linkChallengeMore">🎮 前往挑戰</a>
             </div>
         </div>
     </div>
@@ -718,6 +725,11 @@
 
                 <div class="comment-section">
                     <div class="comment-header">💬 攤位即時留言板</div>
+                    <!-- 星級評分 UI -->
+                    <div class="mb-3 flex items-center">
+                        <span style="font-size: 0.85rem; font-weight: bold; margin-right: 8px; color: var(--text-main);">星級評分:</span>
+                        <div id="notesRating" class="rating-selector"></div>
+                    </div>
                     <div class="comment-input-box">
                         <input type="text" class="comment-input" id="notesCommentInput" placeholder="寫下對社團的讚美或想對攤主說的話...">
                         <button class="btn" style="padding: 6px 14px; font-size: 0.8rem;" onclick="submitComment('notes')">送出</button>
@@ -936,6 +948,9 @@
        JavaScript 邏輯
        ================================================== -->
     <script>
+        /* ==================================================
+           全域權限管理核心 (Security & Authorization)
+           ================================================== */
         let pinTargetBoothId = null;     
         let pinSuccessCallback = null;   
 
@@ -978,6 +993,12 @@
             }
         }
 
+        const _lockBtn = document.getElementById('btnLockSession');
+        if (_lockBtn) _lockBtn.style.display = 'none';
+
+        /* ==================================================
+           網址驗證、防錯與自動補全
+           ================================================== */
         function validateAndNormalizeUrl(url) {
             if (!url) return { isValid: false, normalizedUrl: "" };
             let trimmed = url.trim();
@@ -1020,13 +1041,6 @@
                     MusicModule.genCtx.resume();
                 }
             }, { once: true });
-            
-            const btnOpenUploadModal = document.getElementById("btnOpenUploadModal");
-            if(btnOpenUploadModal) {
-                btnOpenUploadModal.addEventListener("click", () => {
-                    openUploadFlow();
-                });
-            }
         });
 
         function escapeHtml(s) {
@@ -1045,13 +1059,13 @@
             {
                 id: "demo-001", title: "Apple 概念實驗室", signage: "APPLE", authors: ["阿凱", "小雷"],
                 description: "極致的玻璃擬態美學，展示最新的網頁互動體驗。", tags: ["科技", "極簡", "UI/UX"], imageUrl: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=600&q=80",
-                decorIcon: "🧪", accent: "#000000", gameUrl: "https://example.com", likes: 128, isVisible: true, pin: "0000", comments: [],
+                decorIcon: "🧪", accent: "#000000", gameUrl: "https://example.com", likes: 128, visits: 345, isVisible: true, pin: "0000", comments: [{name: "訪客", text: "超好看！", time: "2026/06/17", rating: 5}],
                 themeClass: "theme-apple-glass", aiNotes: { idea: "追求極簡的玻璃質感。", helper: "提供毛玻璃參數調教。", self: "完美對齊邊距。" }
             },
             {
                 id: "demo-002", title: "暗黑金融數據網", signage: "FINTECH", authors: ["小柚"],
                 description: "為專業交易員打造的深色資料視覺化儀表板。", tags: ["金融", "數據", "專業"], imageUrl: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=600&q=80",
-                decorIcon: "📈", accent: "#38BDF8", gameUrl: "https://example.com", likes: 88, isVisible: true, pin: "0000", comments: [],
+                decorIcon: "📈", accent: "#38BDF8", gameUrl: "https://example.com", likes: 88, visits: 210, isVisible: true, pin: "0000", comments: [{name: "Trader", text: "很專業的配色", time: "2026/06/15", rating: 4}],
                 themeClass: "theme-dark-fintech", aiNotes: { idea: "暗色系能讓人更專注於數據。", helper: "生成合適的色盤。", self: "挑選合適的字體以提升可讀性。" }
             }
         ];
@@ -1068,7 +1082,8 @@
                     return {
                         id: doc.id, title: d.title || "未命名品牌", signage: d.signage || "品牌", authors: Array.isArray(d.authors) ? d.authors : (d.authors ? [d.authors] : ["匿名"]),
                         description: d.description || "", tags: Array.isArray(d.tags) ? d.tags : [], imageUrl: d.imageUrl || DEFAULT_IMAGE,
-                        decorIcon: d.decorIcon || "💎", accent: d.accent || "", gameUrl: d.gameUrl || "", likes: d.likes || 0, isVisible: d.isVisible !== false,
+                        decorIcon: d.decorIcon || "💎", accent: d.accent || "", gameUrl: d.gameUrl || "", 
+                        likes: d.likes || 0, visits: d.visits || 0, isVisible: d.isVisible !== false,
                         pin: d.pin || "0000", comments: d.comments || [], themeClass: d.themeClass || "theme-apple-glass", aiNotes: d.aiNotes || { idea: "", helper: "", self: "" }
                     };
                 });
@@ -1160,7 +1175,10 @@
 
         const MarqueeModule = {
             announcements: ["💎 歡迎蒞臨 2026 線上商業特展大廳！", "✨ 10 種頂級旗艦視覺主題，點擊右上方選單即刻體驗！", "🎡 不知道逛哪裡？點擊『驚喜大轉盤』，讓命運為您推薦專屬品牌！"],
-            init() { const marqueeText = document.getElementById("marqueeText"); if (marqueeText) marqueeText.innerText = this.announcements.join("　　★　　"); }
+            init() { 
+                const marqueeText = document.getElementById("marqueeText"); 
+                if (marqueeText) marqueeText.innerText = this.announcements.join("　　★　　"); 
+            }
         };
 
         const LiveConnectionModule = {
@@ -1206,11 +1224,58 @@
             }
         }
 
+        /* 造訪率統計與開啟新視窗 */
+        window.recordVisit = function(boothId, url) {
+            const booth = boothsData.find(b => b.id === boothId);
+            if(booth) {
+                booth.visits = (booth.visits || 0) + 1;
+                const card = document.getElementById(boothId);
+                if(card) {
+                    const vCount = card.querySelector('.visit-count');
+                    if(vCount) vCount.innerText = booth.visits;
+                }
+                if (FIREBASE_READY && !String(booth.id).startsWith('demo-') && !String(booth.id).startsWith('local-')) {
+                    db.collection("booths").doc(booth.id).update({ visits: booth.visits }).catch(()=>{});
+                }
+            }
+            window.open(url, '_blank', 'noopener,noreferrer');
+        }
+
+        /* 留言板與星等處理 */
+        let currentRating = 0;
+        function initRating(modalType) {
+            currentRating = 0;
+            const container = document.getElementById(`${modalType}Rating`);
+            if(!container) return;
+            container.innerHTML = [1,2,3,4,5].map(i => `<span class="star" data-val="${i}" onclick="setRating(${i}, '${modalType}')">☆</span>`).join('');
+        }
+        window.setRating = function(val, modalType) {
+            currentRating = val;
+            const container = document.getElementById(`${modalType}Rating`);
+            if(!container) return;
+            const stars = container.querySelectorAll('.star');
+            stars.forEach((s, idx) => {
+                if(idx < val) { s.innerText = '★'; s.style.color = '#F59E0B'; s.style.textShadow = '0 0 5px rgba(245, 158, 11, 0.4)'; }
+                else { s.innerText = '☆'; s.style.color = 'inherit'; s.style.textShadow = 'none'; }
+            });
+        }
+
+        function getAvgRating(comments) {
+            if(!comments || comments.length === 0) return "-";
+            const rated = comments.filter(c => c.rating && c.rating > 0);
+            if(rated.length === 0) return "-";
+            const sum = rated.reduce((acc, curr) => acc + curr.rating, 0);
+            return (sum / rated.length).toFixed(1);
+        }
+
         const GuestbookModule = {
             renderComments(booth) {
                 const gameList = document.getElementById("gameCommentList"); const notesList = document.getElementById("notesCommentList");
                 const commentsHTML = booth.comments && booth.comments.length > 0 
-                    ? booth.comments.map(c => `<div class="comment-item"><div class="comment-meta"><span>👤 ${escapeHtml(c.name)}</span><span>${escapeHtml(c.time)}</span></div><div>${escapeHtml(c.text)}</div></div>`).join("")
+                    ? booth.comments.map(c => {
+                        const starHtml = c.rating ? `<span style="color: #F59E0B; margin-left: 6px; font-size:0.8rem; letter-spacing:1px;">${'★'.repeat(c.rating)}${'☆'.repeat(5-c.rating)}</span>` : '';
+                        return `<div class="comment-item"><div class="comment-meta"><span>👤 ${escapeHtml(c.name)} ${starHtml}</span><span>${escapeHtml(c.time)}</span></div><div>${escapeHtml(c.text)}</div></div>`;
+                    }).join("")
                     : `<div style="text-align: center; color: var(--text-secondary); font-size: 0.8rem; padding: 15px 0;">目前還沒有留言，快來搶頭香！</div>`;
                 if (gameList) gameList.innerHTML = commentsHTML; if (notesList) notesList.innerHTML = commentsHTML;
             }
@@ -1218,15 +1283,26 @@
 
         function submitComment(type) {
             if (!currentActiveBooth) return;
-            const input = document.getElementById(type === 'game' ? "gameCommentInput" : "notesCommentInput");
+            const inputId = type === 'game' ? "gameCommentInput" : "notesCommentInput";
+            const input = document.getElementById(inputId);
             if (!input || !input.value.trim()) return;
             const now = new Date(); const formattedTime = `${now.getFullYear()}/${String(now.getMonth() + 1).padStart(2, '0')}/${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
             if (!currentActiveBooth.comments) currentActiveBooth.comments = [];
-            currentActiveBooth.comments.unshift({ name: "匿名訪客", text: input.value.trim(), time: formattedTime });
-            GuestbookModule.renderComments(currentActiveBooth); input.value = ""; AudioAmbientModule.playTone(587.33, "sine", 0.15);
+            
+            // 寫入包含評分的紀錄
+            currentActiveBooth.comments.unshift({ name: "匿名訪客", text: input.value.trim(), time: formattedTime, rating: currentRating });
+            
+            GuestbookModule.renderComments(currentActiveBooth); 
+            input.value = ""; 
+            initRating(type); // 歸零評分星等
+            AudioAmbientModule.playTone(587.33, "sine", 0.15);
+            
             if (FIREBASE_READY && currentActiveBooth.id && !String(currentActiveBooth.id).startsWith('demo-') && !String(currentActiveBooth.id).startsWith('local-')) {
                 db.collection("booths").doc(currentActiveBooth.id).update({ comments: currentActiveBooth.comments }).catch(e => console.error("留言儲存失敗：", e));
             }
+            
+            // 重新渲染卡片上的平均分數
+            FilterEngine.filterAndRenderWithDelay();
         }
 
         let wheelCurrentRotation = 0; let isSpinning = false; let visibleBoothsForWheel = [];
@@ -1274,7 +1350,11 @@
                 card.style.setProperty('--color-accent', booth.accent); card.style.setProperty('--color-accent-hover', booth.accent);
                 card.style.setProperty('--card-custom-bg', `linear-gradient(135deg, var(--bg-surface) 40%, ${booth.accent}33 100%)`);
             }
-            card.innerHTML = `<div class="booth-awning"><div class="booth-signage">${escapeHtml(booth.signage)}</div></div><div class="booth-display"><img class="booth-image" src="${escapeHtml(booth.imageUrl)}" onerror="this.src='${DEFAULT_IMAGE}';"><div class="status-badge"><span class="status-dot"></span> 幸運推薦</div></div><div class="booth-decor">${booth.decorIcon}</div><div class="booth-info"><div class="booth-title-wrap"><h3 class="booth-title">${escapeHtml(booth.title)}</h3></div><p class="booth-desc">${escapeHtml(booth.description)}</p></div><div class="booth-actions"><button class="booth-btn btn-game" onclick="openGameModal('${booth.id}'); closeFocusOverlay();">🎮 前往挑戰</button><button class="booth-btn btn-notes" onclick="openNotesModal('${booth.id}'); closeFocusOverlay();">📝 了解更多</button></div>`;
+            
+            const urlCheck = validateAndNormalizeUrl(booth.gameUrl);
+            const playBtnHTML = urlCheck.isValid ? `<button class="booth-btn btn-game" onclick="recordVisit('${booth.id}', '${urlCheck.normalizedUrl}'); closeFocusOverlay();">🎮 官方網站/體驗連結</button>` : `<span class="booth-btn" style="background-color: #d1d5db !important; border-color: #cbd5e1 !important; color: #64748b !important; cursor: not-allowed; text-decoration: none;">⚠️ 連結維護中</span>`;
+            
+            card.innerHTML = `<div class="booth-awning"><div class="booth-signage">${escapeHtml(booth.signage)}</div></div><div class="booth-display"><img class="booth-image" src="${escapeHtml(booth.imageUrl)}" onerror="this.src='${DEFAULT_IMAGE}';"><div class="status-badge"><span class="status-dot"></span> 幸運推薦</div></div><div class="booth-decor">${booth.decorIcon}</div><div class="booth-info"><div class="booth-title-wrap"><h3 class="booth-title">${escapeHtml(booth.title)}</h3></div><p class="booth-desc">${escapeHtml(booth.description)}</p></div><div class="booth-actions">${playBtnHTML}<button class="booth-btn btn-notes" onclick="openNotesModal('${booth.id}'); closeFocusOverlay();">📝 了解更多</button></div>`;
             wrapper.appendChild(card); overlay.classList.add('active');
         }
         function closeFocusOverlay() { document.getElementById('focusOverlay').classList.remove('active'); }
@@ -1358,7 +1438,7 @@
 
                 const tagsHTML = (booth.tags || []).map(tag => `<span class="tag-badge">#${escapeHtml(tag)}</span>`).join("");
                 const urlCheck = validateAndNormalizeUrl(booth.gameUrl);
-                const playBtnHTML = urlCheck.isValid ? `<a class="booth-btn btn-game" href="${urlCheck.normalizedUrl}" target="_blank" rel="noopener noreferrer">🎮 官方網站/體驗連結</a>` : `<span class="booth-btn" style="background-color: #d1d5db !important; border-color: #cbd5e1 !important; color: #64748b !important; cursor: not-allowed; text-decoration: none;" title="網址目前無效">⚠️ 連結維護中</span>`;
+                const playBtnHTML = urlCheck.isValid ? `<button class="booth-btn btn-game" onclick="recordVisit('${booth.id}', '${urlCheck.normalizedUrl}')">🎮 官方網站/體驗連結</button>` : `<span class="booth-btn" style="background-color: #d1d5db !important; border-color: #cbd5e1 !important; color: #64748b !important; cursor: not-allowed; text-decoration: none;" title="網址目前無效">⚠️ 連結維護中</span>`;
 
                 /* 完美讓攤位自訂重點色同時影響按鈕與卡片背景漸層 */
                 if (booth.accent) {
@@ -1368,13 +1448,26 @@
                 }
 
                 const authorsText = (booth.authors && booth.authors.length) ? booth.authors.map(a => escapeHtml(a)).join('、') : '匿名';
+                const avgRating = getAvgRating(booth.comments);
+                const isLikedByMe = false; // 若未來接上 Firebase Auth 可判斷是否按過讚
 
                 card.innerHTML = `
                     <div class="booth-edit-btn" title="編輯設定（需 PIN）" onclick="handleEditClick(event, '${booth.id}')">⚙️</div>
                     <div class="booth-awning"><div class="booth-signage">${escapeHtml(booth.signage || '未命名')}</div></div>
-                    <div class="booth-display"><img class="booth-image" src="${escapeHtml(booth.imageUrl)}" onerror="this.src='${DEFAULT_IMAGE}';"><div class="status-badge"><span class="status-dot"></span> ${isHidden ? '🙈 收起來' : '互動中'}</div><div class="booth-like-badge" onclick="likeBooth(event, '${booth.id}')" title="為此攤位點讚！"><span class="heart-icon">❤️</span> <span class="like-count">${booth.likes || 0}</span></div></div>
+                    <div class="booth-display"><img class="booth-image" src="${escapeHtml(booth.imageUrl)}" onerror="this.src='${DEFAULT_IMAGE}';"><div class="status-badge"><span class="status-dot"></span> ${isHidden ? '🙈 收起來' : '互動中'}</div></div>
                     <div class="booth-decor" title="領域圖標">${booth.decorIcon || '🎪'}</div>
                     <div class="booth-info"><div class="booth-title-wrap"><h3 class="booth-title">${escapeHtml(booth.title)}</h3><div class="tag-group">${tagsHTML}</div></div><div class="booth-authors" style="font-size:0.8rem; color:var(--text-secondary); margin:2px 0 6px; font-weight:600;">🧑‍🎨 ${authorsText}</div><p class="booth-desc" title="${escapeHtml(booth.description)}">${escapeHtml(booth.description)}</p></div>
+                    
+                    <!-- 新增：專屬數據統計列 -->
+                    <div class="booth-stats">
+                        <div class="stat-item" title="累積造訪人次">👁️ <span class="visit-count">${booth.visits || 0}</span></div>
+                        <div class="stat-item clickable" onclick="likeBooth(event, '${booth.id}')" title="點擊給予愛心！">
+                            <span class="heart-icon ${isLikedByMe ? 'liked' : ''}">❤️</span> <span class="like-count">${booth.likes || 0}</span>
+                        </div>
+                        <div class="stat-item" title="留言總數">💬 <span>${(booth.comments || []).length}</span></div>
+                        <div class="stat-item" title="玩家平均評分">⭐ <span>${avgRating}</span></div>
+                    </div>
+
                     <div class="booth-actions">${playBtnHTML}<button class="booth-btn btn-notes" onclick="openNotesModal('${booth.id}')">📝 合作日誌</button></div>
                 `;
                 gridContainer.appendChild(card);
@@ -1391,9 +1484,7 @@
         function openGameModal(boothId) {
             currentActiveBooth = boothsData.find(b => b.id === boothId); if (!currentActiveBooth) return;
             document.getElementById("gameModalTitle").innerText = `【${currentActiveBooth.title}】互動櫃檯`;
-            const challengeBtn = document.getElementById("linkChallengeMore"); const urlCheck = validateAndNormalizeUrl(currentActiveBooth.gameUrl);
-            if (urlCheck.isValid) { challengeBtn.href = urlCheck.normalizedUrl; challengeBtn.style.backgroundColor = "var(--color-accent)"; challengeBtn.style.pointerEvents = "auto"; challengeBtn.style.cursor = "pointer"; challengeBtn.innerText = "前往挑戰 🚀"; } 
-            else { challengeBtn.removeAttribute("href"); challengeBtn.style.backgroundColor = "#cccccc"; challengeBtn.style.pointerEvents = "none"; challengeBtn.style.cursor = "not-allowed"; challengeBtn.innerText = "連結維護中"; }
+            initRating('game');
             AudioAmbientModule.triggerThemeSound(); GuestbookModule.renderComments(currentActiveBooth); openModal("gameModal");
         }
 
@@ -1403,6 +1494,7 @@
             document.getElementById("aiNoteIdea").innerText = currentActiveBooth.aiNotes.idea || "無紀錄";
             document.getElementById("aiNoteHelper").innerText = currentActiveBooth.aiNotes.helper || "無紀錄";
             document.getElementById("aiNoteSelf").innerText = currentActiveBooth.aiNotes.self || "無紀錄";
+            initRating('notes');
             AudioAmbientModule.triggerThemeSound(); GuestbookModule.renderComments(currentActiveBooth); openModal("notesModal");
         }
 
@@ -1473,7 +1565,7 @@
                 authors: authors.length ? authors : ["匿名"], description: document.getElementById("newDesc").value.trim(),
                 tags: tagsInput ? tagsInput.split(",").map(t => t.trim()).filter(Boolean) : ["新星攤位"],
                 imageUrl: document.getElementById("newImage").value.trim() || DEFAULT_IMAGE, decorIcon: document.getElementById("newDecor").value,
-                accent: document.getElementById("newAccent").value, gameUrl: urlCheck.normalizedUrl, pin: pin, likes: 0, isVisible: true, comments: [],
+                accent: document.getElementById("newAccent").value, gameUrl: urlCheck.normalizedUrl, pin: pin, likes: 0, visits: 0, isVisible: true, comments: [],
                 themeClass: "theme-apple-glass", 
                 aiNotes: { idea: document.getElementById("newAiIdea").value.trim(), helper: document.getElementById("newAiHelper").value.trim(), self: document.getElementById("newAiSelf").value.trim() },
                 createdAt: Date.now()
@@ -1482,6 +1574,13 @@
             if (FIREBASE_READY) { try { const ref = await db.collection("booths").add(newBooth); newId = ref.id; } catch (e) { alert("雲端儲存失敗，暫時存在本機。"); } }
             addMyBooth(newId); boothsData.unshift({ id: newId, ...newBooth });
             FilterEngine.generateTagCloud(); FilterEngine.filterAndRenderWithDelay();
+            
+            // 加入上架廣播
+            if(MarqueeModule.announcements.length > 0) {
+                MarqueeModule.announcements.unshift(`🚀 最新上架品牌：【${newBooth.title}】 - 趕快去體驗最新作品！`);
+                MarqueeModule.init();
+            }
+
             document.getElementById("uploadBoothForm").reset(); document.getElementById("newAccent").value = "#3B82F6";
             closeModal("uploadModal"); window.scrollTo({ top: 0, behavior: 'smooth' }); AudioAmbientModule.playTone(1046.50, "sine", 0.4);
         }
@@ -1493,7 +1592,17 @@
         window.addEventListener("DOMContentLoaded", async () => {
             MarqueeModule.init(); LiveConnectionModule.init(); AudioAmbientModule.init(); MusicModule.init();
             if (typeof FROZEN_BOOTHS !== "undefined") { const upBtn = document.getElementById("btnOpenUploadModal"); if (upBtn) upBtn.style.display = "none"; }
-            LoaderModule.showSkeletons(3); await loadBooths(); FilterEngine.init(); renderBooths(boothsData);
+            LoaderModule.showSkeletons(3); 
+            await loadBooths();            
+            
+            // 動態更新快訊為最新上架的遊戲
+            if (boothsData.length > 0) {
+                MarqueeModule.announcements.unshift(`🚀 最新上架品牌：【${boothsData[0].title}】 - 趕快去體驗最新作品！`);
+                MarqueeModule.init();
+            }
+
+            FilterEngine.init(); 
+            renderBooths(boothsData);
         });
     </script>
 </body>
