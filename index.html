@@ -534,6 +534,42 @@
             backdrop-filter: blur(20px) saturate(150%); -webkit-backdrop-filter: blur(20px) saturate(150%);
             font-size: 0.85rem; color: var(--text-main); margin-top: 60px; 
         }
+
+        /* 管理員登入按鈕優化視覺 */
+        .admin-trigger-btn {
+            background: rgba(128, 128, 128, 0.12);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            border-radius: 50px;
+            padding: 6px 16px;
+            font-size: 0.78rem;
+            cursor: pointer;
+            transition: var(--transition-bezier);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: inherit;
+            margin-left: 10px;
+            font-weight: bold;
+            outline: none;
+            box-shadow: var(--shadow-btn);
+        }
+        .admin-trigger-btn:hover {
+            background: var(--bg-surface);
+            border-color: var(--color-accent);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            transform: translateY(-2px);
+            color: var(--text-main);
+        }
+        .admin-trigger-btn:active {
+            transform: translateY(0);
+        }
+        .admin-trigger-btn.is-logged-in {
+            background: #ef4444 !important;
+            color: #ffffff !important;
+            border-color: #ef4444 !important;
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3) !important;
+        }
     </style>
 
     <!-- ==================================================
@@ -576,6 +612,9 @@
         </div>
         
         <div class="navbar-controls">
+            <div id="adminBadge" style="display:none; align-items:center; background: #ef4444; color: white; padding: 4px 10px; border-radius: 50px; font-size: 0.8rem; font-weight: bold; margin-right: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">
+                👑 管理員
+            </div>
             <div class="live-visitors" title="目前正在逛這個市集的真實人數">
                 <span class="live-pulse-dot"></span>
                 <span>線上: <span id="onlineCount">1</span> 人</span>
@@ -603,7 +642,7 @@
                 </optgroup>
             </select>
             
-            <button class="btn btn-accent" id="btnOpenUploadModal" onclick="openUploadFlow()">
+            <button class="btn btn-accent" id="btnOpenUploadModal" onclick="window.openUploadFlow()">
                 <span>➕</span> 擺設攤位
             </button>
         </div>
@@ -643,7 +682,7 @@
 
     <!-- 大轉盤 Modal -->
     <div id="wheelModal">
-        <button class="wheel-close" onclick="closeWheelModal()">&times;</button>
+        <button class="wheel-close" onclick="window.closeWheelModal()">&times;</button>
         <div class="wheel-text-glass">
             <h2 style="font-size: 2rem; margin-bottom: 10px; font-weight: 900;">命運的指引</h2>
             <p style="font-size: 0.95rem;">點擊 GO 按鈕，讓轉盤決定你要拜訪的攤位！</p>
@@ -651,14 +690,14 @@
         <div class="wheel-container">
             <div class="wheel-pointer"></div>
             <canvas id="wheelCanvas" class="wheel-canvas" width="400" height="400"></canvas>
-            <div class="wheel-center-btn" onclick="spinWheel()">GO!</div>
+            <div class="wheel-center-btn" onclick="window.spinWheel()">GO!</div>
         </div>
     </div>
 
     <!-- 轉盤聚焦展示遮罩 -->
     <div class="focus-overlay" id="focusOverlay">
         <div class="focus-card-wrapper" id="focusCardWrapper"></div>
-        <button style="position: absolute; top: 30px; right: 40px; background: none; border: none; color: #FFF; font-size: 2.5rem; cursor: pointer; text-shadow: 0 2px 4px rgba(0,0,0,0.5);" onclick="closeFocusOverlay()">&times;</button>
+        <button style="position: absolute; top: 30px; right: 40px; background: none; border: none; color: #FFF; font-size: 2.5rem; cursor: pointer; text-shadow: 0 2px 4px rgba(0,0,0,0.5);" onclick="window.closeFocusOverlay()">&times;</button>
         <p style="position: absolute; bottom: 40px; color: #FFF; font-size: 1.2rem; font-weight: bold; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">🎉 轉中了！點擊卡片開始互動，或按右上角關閉。</p>
     </div>
 
@@ -667,7 +706,7 @@
         <div class="modal-container">
             <div class="modal-header">
                 <h3 class="modal-title" id="gameModalTitle">攤位特製遊戲</h3>
-                <button class="modal-close" onclick="closeModal('gameModal')">&times;</button>
+                <button class="modal-close" onclick="window.closeModal('gameModal')">&times;</button>
             </div>
             <div class="modal-body">
                 <div class="game-panel">
@@ -688,13 +727,13 @@
                     </div>
                     <div class="comment-input-box">
                         <input type="text" class="comment-input" id="gameCommentInput" placeholder="寫下對社團的讚美或想對攤主說的話...">
-                        <button class="btn" style="padding: 6px 14px; font-size: 0.8rem;" onclick="submitComment('game')">送出</button>
+                        <button class="btn" style="padding: 6px 14px; font-size: 0.8rem;" onclick="window.submitComment('game')">送出</button>
                     </div>
                     <div class="comment-list" id="gameCommentList"></div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeModal('gameModal')">關閉</button>
+                <button class="btn btn-secondary" onclick="window.closeModal('gameModal')">關閉</button>
             </div>
         </div>
     </div>
@@ -704,7 +743,7 @@
         <div class="modal-container">
             <div class="modal-header">
                 <h3 class="modal-title" id="notesModalTitle">合作開發日誌</h3>
-                <button class="modal-close" onclick="closeModal('notesModal')">&times;</button>
+                <button class="modal-close" onclick="window.closeModal('notesModal')">&times;</button>
             </div>
             <div class="modal-body">
                 <p style="margin-bottom: 20px; font-size: 0.95rem; color: var(--text-secondary);">
@@ -732,13 +771,13 @@
                     </div>
                     <div class="comment-input-box">
                         <input type="text" class="comment-input" id="notesCommentInput" placeholder="寫下對社團的讚美或想對攤主說的話...">
-                        <button class="btn" style="padding: 6px 14px; font-size: 0.8rem;" onclick="submitComment('notes')">送出</button>
+                        <button class="btn" style="padding: 6px 14px; font-size: 0.8rem;" onclick="window.submitComment('notes')">送出</button>
                     </div>
                     <div class="comment-list" id="notesCommentList"></div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeModal('notesModal')">關閉</button>
+                <button class="btn btn-secondary" onclick="window.closeModal('notesModal')">關閉</button>
             </div>
         </div>
     </div>
@@ -748,9 +787,9 @@
         <div class="modal-container" style="max-width: 600px;">
             <div class="modal-header">
                 <h3 class="modal-title">新攤位擺設表單</h3>
-                <button class="modal-close" onclick="closeModal('uploadModal')">&times;</button>
+                <button class="modal-close" onclick="window.closeModal('uploadModal')">&times;</button>
             </div>
-            <form id="uploadBoothForm" onsubmit="handleLocalUpload(event)">
+            <form id="uploadBoothForm" onsubmit="window.handleLocalUpload(event)">
                 <div class="modal-body">
                     <div class="form-row">
                         <div class="form-group">
@@ -830,7 +869,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" onclick="closeModal('uploadModal')">取消</button>
+                    <button type="button" class="btn btn-secondary" onclick="window.closeModal('uploadModal')">取消</button>
                     <button type="submit" class="btn btn-accent">確認進駐！</button>
                 </div>
             </form>
@@ -847,10 +886,10 @@
                 <p style="color: var(--text-secondary); font-size: 0.9rem;" id="pinModalHint">請輸入此攤位的 4 位數 PIN 碼</p>
                 <input type="password" id="ownerPinInput" class="pin-input" maxlength="4" placeholder="••••">
                 <div id="pinErrorMsg" class="pin-error-msg">密碼錯誤，拒絕存取！❌</div>
-                <button class="btn btn-accent" style="width: 80%; justify-content: center; font-size: 1.1rem; padding: 12px;" onclick="verifyPin()">確認解鎖</button>
+                <button class="btn btn-accent" style="width: 80%; justify-content: center; font-size: 1.1rem; padding: 12px;" onclick="window.verifyPin()">確認解鎖</button>
             </div>
             <div class="modal-footer" style="justify-content: center; border-top: none;">
-                <button class="btn btn-secondary" onclick="closeModal('pinModal'); pinSuccessCallback = null; pinTargetBoothId = null;">取消</button>
+                <button class="btn btn-secondary" onclick="window.cancelPinModal()">取消</button>
             </div>
         </div>
     </div>
@@ -860,9 +899,9 @@
         <div class="modal-container" style="max-width: 500px;">
             <div class="modal-header">
                 <h3 class="modal-title">⚙️ 編輯攤位外觀</h3>
-                <button class="modal-close" onclick="closeModal('editBoothModal')">&times;</button>
+                <button class="modal-close" onclick="window.closeModal('editBoothModal')">&times;</button>
             </div>
-            <form id="editBoothForm" onsubmit="saveEditBooth(event)">
+            <form id="editBoothForm" onsubmit="window.saveEditBooth(event)">
                 <div class="modal-body">
                     <input type="hidden" id="editBoothId">
 
@@ -926,11 +965,19 @@
                         <span id="editGameUrlError" style="color: #ef4444; font-size: 0.8rem; display: none; font-weight: bold; margin-top: 5px;"></span>
                     </div>
 
+                    <!-- 只有管理員才看得到的編輯紀錄區塊 -->
+                    <div id="adminLogSection" style="display: none; margin-top: 15px; border-top: 1px dashed var(--border-color); padding-top: 15px;">
+                        <label style="color: #ef4444; display: flex; align-items: center; gap: 5px; font-weight: bold;">👑 管理員專用：攤位異動紀錄</label>
+                        <div id="adminLogList" style="background: var(--bg-base); border-radius: 8px; padding: 10px; max-height: 120px; overflow-y: auto; font-size: 0.8rem; color: var(--text-secondary); border: 1px solid var(--border-color);">
+                            <!-- 紀錄列表將動態生成 -->
+                        </div>
+                    </div>
+
                 </div>
                 <div class="modal-footer" style="justify-content: space-between;">
-                    <button type="button" class="btn btn-secondary" style="border-color:#ef4444; color:#ef4444;" onclick="deleteBooth()">🗑️ 撤銷攤位</button>
+                    <button type="button" class="btn btn-secondary" style="border-color:#ef4444; color:#ef4444;" onclick="window.deleteBooth()">🗑️ 撤銷攤位</button>
                     <div style="display:flex; gap:10px;">
-                        <button type="button" class="btn btn-secondary" onclick="closeModal('editBoothModal')">取消</button>
+                        <button type="button" class="btn btn-secondary" onclick="window.closeModal('editBoothModal')">取消</button>
                         <button type="submit" class="btn btn-accent">儲存設定</button>
                     </div>
                 </div>
@@ -938,10 +985,33 @@
         </div>
     </div>
 
+    <!-- 🌟 新增：全域自訂對話框系統 (Custom Dialog Modal System) -->
+    <!-- 這能完美取代瀏覽器預設的 alert、prompt、confirm，徹底穿透並解決沙盒 iframe 的阻擋問題 -->
+    <div class="modal-overlay" id="customDialogModal" style="z-index: 5000;">
+        <div class="modal-container" style="max-width: 420px; text-align: center; border: 1px solid var(--border-color);">
+            <div class="modal-header" style="justify-content: center; border-bottom: none; padding-bottom: 0;">
+                <h3 class="modal-title" id="customDialogTitle" style="font-size: 1.3rem;">💡 提示</h3>
+            </div>
+            <div class="modal-body" style="padding: 24px;">
+                <p id="customDialogMessage" style="color: var(--text-main); font-size: 0.95rem; margin-bottom: 20px; white-space: pre-line; line-height: 1.6;"></p>
+                <div id="customDialogInputContainer" style="display: none; margin-bottom: 15px;">
+                    <input type="text" id="customDialogInput" class="form-control" style="text-align: center; font-size: 1.2rem; letter-spacing: 2px; padding: 12px; background: var(--bg-base); color: var(--text-main); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+                </div>
+            </div>
+            <div class="modal-footer" id="customDialogFooter" style="justify-content: center; border-top: none; gap: 12px; padding-bottom: 24px;">
+                <!-- 這裡的按鈕會由 JS 動態生成 -->
+            </div>
+        </div>
+    </div>
+
     <footer>
         <p style="font-weight: 700; font-size: 1rem; letter-spacing: 0.05em;">114 HKJH AI共創媒體實驗社團</p>
         <p style="font-size: 0.8rem; margin-top: 8px;">感謝施棨耀同學製作總網站　·　感謝何睿翔同學設計網站雛形</p>
-        <p style="font-size: 0.72rem; margin-top: 10px; opacity: 0.7;">世界越快，心則慢。</p>
+        <div style="margin-top: 15px; display: flex; align-items: center; justify-content: center; opacity: 0.9; gap: 8px; flex-wrap: wrap;">
+            <span style="font-size: 0.75rem; color: var(--text-secondary);">世界越快，心則慢。</span> 
+            <!-- 採用 100% 安全的點擊觸任，結合事件派發器 -->
+            <button id="adminLoginTrigger" class="admin-trigger-btn" style="position: relative; z-index: 50;" onclick="window.toggleAdminMode()">🔒 管理員登入</button>
+        </div>
     </footer>
 
     <!-- ==================================================
@@ -949,16 +1019,111 @@
        ================================================== -->
     <script>
         /* ==================================================
+           🌟 客製化全域對話框系統核心 (MomoDialog System)
+           這套系統使用原生 HTML 彈窗完美阻斷 iframe sandbox 帶來的 API 阻擋
+           ================================================== */
+        const MomoDialog = {
+            activeResolve: null,
+            
+            // 取代原本的 alert()
+            alert(message, title = "💡 系統提示") {
+                return new Promise((resolve) => {
+                    document.getElementById("customDialogTitle").innerText = title;
+                    document.getElementById("customDialogMessage").innerText = message;
+                    document.getElementById("customDialogInputContainer").style.display = "none";
+                    
+                    const footer = document.getElementById("customDialogFooter");
+                    footer.innerHTML = `<button class="btn btn-accent" style="min-width: 120px; justify-content: center;" onclick="window.MomoDialog.resolve(true)">確定</button>`;
+                    
+                    this.activeResolve = resolve;
+                    window.openModal("customDialogModal");
+                });
+            },
+            
+            // 取代原本的 confirm()
+            confirm(message, title = "❓ 確認動作") {
+                return new Promise((resolve) => {
+                    document.getElementById("customDialogTitle").innerText = title;
+                    document.getElementById("customDialogMessage").innerText = message;
+                    document.getElementById("customDialogInputContainer").style.display = "none";
+                    
+                    const footer = document.getElementById("customDialogFooter");
+                    footer.innerHTML = `
+                        <button class="btn btn-secondary" style="min-width: 100px; justify-content: center;" onclick="window.MomoDialog.resolve(false)">取消</button>
+                        <button class="btn btn-accent" style="min-width: 100px; justify-content: center; background-color:#ef4444; border-color:#ef4444; color:#fff;" onclick="window.MomoDialog.resolve(true)">確認</button>
+                    `;
+                    
+                    this.activeResolve = resolve;
+                    window.openModal("customDialogModal");
+                });
+            },
+            
+            // 取代原本的 prompt()
+            prompt(message, title = "🔑 安全密碼驗證", isPassword = false, defaultValue = "") {
+                return new Promise((resolve) => {
+                    document.getElementById("customDialogTitle").innerText = title;
+                    document.getElementById("customDialogMessage").innerText = message;
+                    
+                    const container = document.getElementById("customDialogInputContainer");
+                    container.style.display = "block";
+                    
+                    const input = document.getElementById("customDialogInput");
+                    input.type = isPassword ? "password" : "text";
+                    input.value = defaultValue;
+                    input.placeholder = isPassword ? "請輸入密碼..." : "請輸入內容...";
+                    
+                    const footer = document.getElementById("customDialogFooter");
+                    footer.innerHTML = `
+                        <button class="btn btn-secondary" style="min-width: 100px; justify-content: center;" onclick="window.MomoDialog.resolve(null)">取消</button>
+                        <button class="btn btn-accent" style="min-width: 100px; justify-content: center;" onclick="window.MomoDialog.submitPrompt()">提交</button>
+                    `;
+                    
+                    // 支援 Enter 提交
+                    input.onkeydown = function(e) {
+                        if (e.key === "Enter") {
+                            window.MomoDialog.submitPrompt();
+                        }
+                    };
+                    
+                    this.activeResolve = resolve;
+                    window.openModal("customDialogModal");
+                    setTimeout(() => input.focus(), 150);
+                });
+            },
+            
+            submitPrompt() {
+                const val = document.getElementById("customDialogInput").value;
+                this.resolve(val);
+            },
+            
+            resolve(val) {
+                window.closeModal("customDialogModal");
+                if (this.activeResolve) {
+                    const r = this.activeResolve;
+                    this.activeResolve = null;
+                    r(val);
+                }
+            }
+        };
+
+        /* ==================================================
            全域權限管理核心 (Security & Authorization)
            ================================================== */
         let pinTargetBoothId = null;     
         let pinSuccessCallback = null;   
 
+        // 全域時間格式化工具，用於留言與紀錄
+        function getCurrentTimeFormatted() {
+            const now = new Date();
+            return `${now.getFullYear()}/${String(now.getMonth() + 1).padStart(2, '0')}/${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+        }
+
+        // 開啟新增攤位表單
         function openUploadFlow() {
             document.getElementById("uploadBoothForm").reset();
             document.getElementById("newAccent").value = "#3B82F6";
-            hideFormError("newGameUrl");
-            openModal("uploadModal");
+            window.hideFormError("newGameUrl");
+            window.openModal("uploadModal");
         }
 
         function requireBoothPin(boothId, callback) {
@@ -970,7 +1135,7 @@
             document.getElementById('pinErrorMsg').classList.remove('visible');
             const hint = document.getElementById('pinModalHint');
             if (hint) hint.innerText = `請輸入「${booth.title}」的 4 位數 PIN 碼`;
-            openModal('pinModal');
+            window.openModal('pinModal');
         }
 
         function verifyPin() {
@@ -979,7 +1144,7 @@
             const booth = boothsData.find(b => b.id === pinTargetBoothId);
 
             if (booth && input.value === String(booth.pin)) {
-                closeModal('pinModal');
+                window.closeModal('pinModal');
                 AudioAmbientModule.playTone(880, "triangle", 0.3);
                 const cb = pinSuccessCallback;
                 pinSuccessCallback = null;
@@ -991,6 +1156,12 @@
                 AudioAmbientModule.playTone(200, "sawtooth", 0.2); 
                 setTimeout(() => { input.classList.remove('shake-anim'); }, 400); 
             }
+        }
+
+        function cancelPinModal() {
+            window.closeModal('pinModal');
+            pinSuccessCallback = null;
+            pinTargetBoothId = null;
         }
 
         const _lockBtn = document.getElementById('btnLockSession');
@@ -1027,11 +1198,12 @@
             if (inputField) inputField.style.borderColor = 'var(--border-color)';
         }
 
-        document.addEventListener("DOMContentLoaded", () => {
+        // 初始化輸入欄位事件監聽與全域點擊恢復音訊脈絡
+        function initInputHandlers() {
             const newUrlField = document.getElementById("newGameUrl");
             const editUrlField = document.getElementById("editGameUrl");
-            if (newUrlField) newUrlField.addEventListener("input", () => hideFormError("newGameUrl"));
-            if (editUrlField) editUrlField.addEventListener("input", () => hideFormError("editGameUrl"));
+            if (newUrlField) newUrlField.addEventListener("input", () => window.hideFormError("newGameUrl"));
+            if (editUrlField) editUrlField.addEventListener("input", () => window.hideFormError("editGameUrl"));
 
             document.addEventListener('click', () => {
                 if (AudioAmbientModule.audioCtx && AudioAmbientModule.audioCtx.state === 'suspended') {
@@ -1041,7 +1213,7 @@
                     MusicModule.genCtx.resume();
                 }
             }, { once: true });
-        });
+        }
 
         function escapeHtml(s) {
             if (s === null || s === undefined) return '';
@@ -1052,8 +1224,8 @@
 
         const MY_BOOTHS_KEY = "hkjh_my_booths";
         function getMyBooths() { try { return JSON.parse(localStorage.getItem(MY_BOOTHS_KEY) || "[]"); } catch (e) { return []; } }
-        function addMyBooth(id) { const list = getMyBooths(); if (!list.includes(id)) { list.push(id); localStorage.setItem(MY_BOOTHS_KEY, JSON.stringify(list)); } }
-        function isMyBooth(id) { return getMyBooths().includes(id); }
+        function addMyBooth(id) { const list = window.getMyBooths(); if (!list.includes(id)) { list.push(id); localStorage.setItem(MY_BOOTHS_KEY, JSON.stringify(list)); } }
+        function isMyBooth(id) { return window.getMyBooths().includes(id); }
 
         const DEMO_BOOTHS = [
             {
@@ -1084,15 +1256,59 @@
                         description: d.description || "", tags: Array.isArray(d.tags) ? d.tags : [], imageUrl: d.imageUrl || DEFAULT_IMAGE,
                         decorIcon: d.decorIcon || "💎", accent: d.accent || "", gameUrl: d.gameUrl || "", 
                         likes: d.likes || 0, visits: d.visits || 0, isVisible: d.isVisible !== false,
-                        pin: d.pin || "0000", comments: d.comments || [], themeClass: d.themeClass || "theme-apple-glass", aiNotes: d.aiNotes || { idea: "", helper: "", self: "" }
+                        pin: d.pin || "0000", comments: d.comments || [], themeClass: d.themeClass || "theme-apple-glass", aiNotes: d.aiNotes || { idea: "", helper: "", self: "" },
+                        editLogs: d.editLogs || []
                     };
                 });
             } catch (e) { console.error("讀取攤位失敗：", e); boothsData = JSON.parse(JSON.stringify(DEMO_BOOTHS)); }
         }
 
-        const FREEZE_ADMIN_PASSWORD = "momolab"; 
+        const FREEZE_ADMIN_PASSWORD = "5272"; 
+        let isAdmin = false; // 追蹤管理員狀態
+
+        // 🌟 革命性修復：將登入改為 async 函式，並使用 MomoDialog 進行無感式彈窗輸入
+        window.toggleAdminMode = async function() {
+            const adminTrigger = document.getElementById("adminLoginTrigger");
+            if (!adminTrigger) return;
+            
+            if (isAdmin) {
+                isAdmin = false;
+                document.getElementById("adminBadge").style.display = "none";
+                adminTrigger.innerHTML = "🔒 管理員登入";
+                adminTrigger.classList.remove("is-logged-in");
+                await window.MomoDialog.alert("已安全登出管理員身分。", "🔓 登出成功");
+                FilterEngine.generateTagCloud();
+                FilterEngine.filterAndRenderWithDelay();
+                return;
+            }
+            
+            const pw = await window.MomoDialog.prompt("請輸入管理員專用密碼：", "🔑 身分安全驗證", true);
+            if (pw === FREEZE_ADMIN_PASSWORD) {
+                isAdmin = true;
+                document.getElementById("adminBadge").style.display = "inline-flex";
+                adminTrigger.innerHTML = "🔓 登出管理員";
+                adminTrigger.classList.add("is-logged-in");
+                await window.MomoDialog.alert("👑 管理員模式已成功啟動！\n\n1. 您現在可以看到所有隱藏（收起來）的攤位。\n2. 點擊任何攤位的齒輪按鈕，無須 PIN 碼即可直接強制編輯或撤銷。\n3. 您可在編輯選單中查看完整的【攤位異動紀錄】。", "👑 登入成功");
+                FilterEngine.generateTagCloud();
+                FilterEngine.filterAndRenderWithDelay();
+                window.scrollTo({ top: 0, behavior: 'smooth' }); // 自動捲動到最上方看見管理員徽章
+            } else if (pw !== null) {
+                await window.MomoDialog.alert("密碼不正確，請重新輸入 ❌", "⚠️ 驗證失敗");
+            }
+        };
+
+        // 🌟 核心防護：全域點擊事件攔截委派，任何時候點擊對應按鈕均會直接觸發 window.toggleAdminMode()
+        document.addEventListener("click", function(e) {
+            const trigger = e.target.closest("#adminLoginTrigger");
+            if (trigger) {
+                e.preventDefault();
+                e.stopPropagation();
+                window.toggleAdminMode();
+            }
+        }, true); // 使用 capturing 確保最高觸發優先權
+
         async function freezeToStaticVersion() {
-            if (!FIREBASE_READY) { alert("尚未連線 Firebase，無法凍結。"); return; }
+            if (!FIREBASE_READY) { await window.MomoDialog.alert("尚未連線 Firebase，無法凍結。", "⚠️ 系統提示"); return; }
             try {
                 const snap = await db.collection("booths").orderBy("createdAt", "desc").get();
                 const frozen = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
@@ -1105,22 +1321,27 @@
                 a.href = url; a.download = `商業旗艦市集_${new Date().toISOString().slice(0,10)}.html`;
                 document.body.appendChild(a); a.click(); document.body.removeChild(a);
                 setTimeout(() => URL.revokeObjectURL(url), 60000);
-                alert(`✅ 已下載永久紀念版！`);
-            } catch (e) { alert("凍結失敗，請檢查網路或 Firebase 設定。"); }
+                await window.MomoDialog.alert("永久紀念版檔案已下載完成！", "💾 導出成功");
+            } catch (e) { 
+                await window.MomoDialog.alert("凍結失敗，請檢查網路或 Firebase 設定。", "⚠️ 發生錯誤"); 
+            }
         }
 
         (function setupFreezeTrigger() {
             let shiftCount = 0, lastShift = 0;
-            document.addEventListener("keydown", (e) => {
+            document.addEventListener("keydown", async (e) => {
                 if (e.key === "Shift") {
                     const now = Date.now();
                     if (now - lastShift < 600) shiftCount++; else shiftCount = 1;
                     lastShift = now;
                     if (shiftCount >= 3) {
                         shiftCount = 0;
-                        const pw = prompt("【管理員專用】請輸入密碼以匯出版本：");
-                        if (pw === FREEZE_ADMIN_PASSWORD) freezeToStaticVersion();
-                        else if (pw !== null) alert("密碼錯誤。");
+                        const pw = await window.MomoDialog.prompt("【管理員專用】請輸入密碼以匯出版本：", "🔒 匯出安全驗證", true);
+                        if (pw === FREEZE_ADMIN_PASSWORD) {
+                            window.freezeToStaticVersion();
+                        } else if (pw !== null) {
+                            await window.MomoDialog.alert("密碼不正確 ❌", "⚠️ 驗證失敗");
+                        }
                     }
                 }
             });
@@ -1150,7 +1371,7 @@
                 const tagFiltersContainer = document.getElementById("tagFilters");
                 if (!tagFiltersContainer) return;
                 const allTags = new Set();
-                boothsData.forEach(booth => { if (booth.isVisible !== false && booth.tags) booth.tags.forEach(tag => allTags.add(tag)); });
+                boothsData.forEach(booth => { if (isAdmin || booth.isVisible !== false) if (booth.tags) booth.tags.forEach(tag => allTags.add(tag)); });
                 let tagButtonsHTML = `<button class="filter-tag-btn active" data-tag="all">✨ 全部</button>`;
                 allTags.forEach(tag => { tagButtonsHTML += `<button class="filter-tag-btn" data-tag="${tag}">#${tag}</button>`; });
                 tagFiltersContainer.innerHTML = tagButtonsHTML;
@@ -1164,12 +1385,13 @@
             filterAndRenderWithDelay() { LoaderModule.showSkeletons(2); setTimeout(() => { this.filterAndRender(); }, 300); },
             filterAndRender() {
                 const filtered = boothsData.filter(booth => {
-                    if (booth.isVisible === false && !isMyBooth(booth.id)) return false;
+                    // 若不是管理員，則隱藏非自己擁有的「收起來」攤位
+                    if (!isAdmin && booth.isVisible === false && !window.isMyBooth(booth.id)) return false;
                     const matchSearch = booth.title.toLowerCase().includes(searchQuery) || booth.description.toLowerCase().includes(searchQuery) || booth.tags.some(tag => tag.toLowerCase().includes(searchQuery));
                     const matchTag = (selectedTag === "all" || booth.tags.includes(selectedTag));
                     return matchSearch && matchTag;
                 });
-                renderBooths(filtered);
+                window.renderBooths(filtered);
             }
         };
 
@@ -1225,7 +1447,7 @@
         }
 
         /* 造訪率統計與開啟新視窗 */
-        window.recordVisit = function(boothId, url) {
+        function recordVisit(boothId, url) {
             const booth = boothsData.find(b => b.id === boothId);
             if(booth) {
                 booth.visits = (booth.visits || 0) + 1;
@@ -1247,9 +1469,9 @@
             currentRating = 0;
             const container = document.getElementById(`${modalType}Rating`);
             if(!container) return;
-            container.innerHTML = [1,2,3,4,5].map(i => `<span class="star" data-val="${i}" onclick="setRating(${i}, '${modalType}')">☆</span>`).join('');
+            container.innerHTML = [1,2,3,4,5].map(i => `<span class="star" data-val="${i}" onclick="window.setRating(${i}, '${modalType}')">☆</span>`).join('');
         }
-        window.setRating = function(val, modalType) {
+        function setRating(val, modalType) {
             currentRating = val;
             const container = document.getElementById(`${modalType}Rating`);
             if(!container) return;
@@ -1274,7 +1496,7 @@
                 const commentsHTML = booth.comments && booth.comments.length > 0 
                     ? booth.comments.map(c => {
                         const starHtml = c.rating ? `<span style="color: #F59E0B; margin-left: 6px; font-size:0.8rem; letter-spacing:1px;">${'★'.repeat(c.rating)}${'☆'.repeat(5-c.rating)}</span>` : '';
-                        return `<div class="comment-item"><div class="comment-meta"><span>👤 ${escapeHtml(c.name)} ${starHtml}</span><span>${escapeHtml(c.time)}</span></div><div>${escapeHtml(c.text)}</div></div>`;
+                        return `<div class="comment-item"><div class="comment-meta"><span>👤 ${window.escapeHtml(c.name)} ${starHtml}</span><span>${window.escapeHtml(c.time)}</span></div><div>${window.escapeHtml(c.text)}</div></div>`;
                     }).join("")
                     : `<div style="text-align: center; color: var(--text-secondary); font-size: 0.8rem; padding: 15px 0;">目前還沒有留言，快來搶頭香！</div>`;
                 if (gameList) gameList.innerHTML = commentsHTML; if (notesList) notesList.innerHTML = commentsHTML;
@@ -1286,7 +1508,7 @@
             const inputId = type === 'game' ? "gameCommentInput" : "notesCommentInput";
             const input = document.getElementById(inputId);
             if (!input || !input.value.trim()) return;
-            const now = new Date(); const formattedTime = `${now.getFullYear()}/${String(now.getMonth() + 1).padStart(2, '0')}/${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+            const formattedTime = window.getCurrentTimeFormatted();
             if (!currentActiveBooth.comments) currentActiveBooth.comments = [];
             
             // 寫入包含評分的紀錄
@@ -1294,7 +1516,7 @@
             
             GuestbookModule.renderComments(currentActiveBooth); 
             input.value = ""; 
-            initRating(type); // 歸零評分星等
+            window.initRating(type); // 歸零評分星等
             AudioAmbientModule.playTone(587.33, "sine", 0.15);
             
             if (FIREBASE_READY && currentActiveBooth.id && !String(currentActiveBooth.id).startsWith('demo-') && !String(currentActiveBooth.id).startsWith('local-')) {
@@ -1326,8 +1548,8 @@
         }
         function openWheelModal() {
             visibleBoothsForWheel = boothsData.filter(b => b.isVisible !== false);
-            if (visibleBoothsForWheel.length === 0) { alert("目前沒有營業中的攤位可以抽選喔！"); return; }
-            drawWheel(); document.getElementById('wheelModal').classList.add('active');
+            if (visibleBoothsForWheel.length === 0) { window.MomoDialog.alert("目前沒有營業中的攤位可以抽選喔！", "提示"); return; }
+            window.drawWheel(); document.getElementById('wheelModal').classList.add('active');
             const canvas = document.getElementById('wheelCanvas'); canvas.style.transition = 'none'; canvas.style.transform = `rotate(${wheelCurrentRotation}deg)`;
         }
         function closeWheelModal() { if (isSpinning) return; document.getElementById('wheelModal').classList.remove('active'); }
@@ -1340,7 +1562,7 @@
             setTimeout(() => {
                 isSpinning = false; AudioAmbientModule.playVictoryMelody();
                 const pointerAngle = (270 - (wheelCurrentRotation % 360) + 360) % 360;
-                closeWheelModal(); showFocusedBooth(visibleBoothsForWheel[Math.floor(pointerAngle / sliceAngleDeg)]);
+                window.closeWheelModal(); window.showFocusedBooth(visibleBoothsForWheel[Math.floor(pointerAngle / sliceAngleDeg)]);
             }, 4100);
         }
         function showFocusedBooth(booth) {
@@ -1351,14 +1573,21 @@
                 card.style.setProperty('--card-custom-bg', `linear-gradient(135deg, var(--bg-surface) 40%, ${booth.accent}33 100%)`);
             }
             
-            const urlCheck = validateAndNormalizeUrl(booth.gameUrl);
-            const playBtnHTML = urlCheck.isValid ? `<button class="booth-btn btn-game" onclick="recordVisit('${booth.id}', '${urlCheck.normalizedUrl}'); closeFocusOverlay();">🎮 官方網站/體驗連結</button>` : `<span class="booth-btn" style="background-color: #d1d5db !important; border-color: #cbd5e1 !important; color: #64748b !important; cursor: not-allowed; text-decoration: none;">⚠️ 連結維護中</span>`;
+            const urlCheck = window.validateAndNormalizeUrl(booth.gameUrl);
+            const playBtnHTML = urlCheck.isValid ? `<button class="booth-btn btn-game" onclick="window.recordVisit('${booth.id}', '${urlCheck.normalizedUrl}'); window.closeFocusOverlay();">🎮 官方網站/體驗連結</button>` : `<span class="booth-btn" style="background-color: #d1d5db !important; border-color: #cbd5e1 !important; color: #64748b !important; cursor: not-allowed; text-decoration: none;">⚠️ 連結維護中</span>`;
             
-            card.innerHTML = `<div class="booth-awning"><div class="booth-signage">${escapeHtml(booth.signage)}</div></div><div class="booth-display"><img class="booth-image" src="${escapeHtml(booth.imageUrl)}" onerror="this.src='${DEFAULT_IMAGE}';"><div class="status-badge"><span class="status-dot"></span> 幸運推薦</div></div><div class="booth-decor">${booth.decorIcon}</div><div class="booth-info"><div class="booth-title-wrap"><h3 class="booth-title">${escapeHtml(booth.title)}</h3></div><p class="booth-desc">${escapeHtml(booth.description)}</p></div><div class="booth-actions">${playBtnHTML}<button class="booth-btn btn-notes" onclick="openNotesModal('${booth.id}'); closeFocusOverlay();">📝 了解更多</button></div>`;
+            card.innerHTML = `<div class="booth-awning"><div class="booth-signage">${window.escapeHtml(booth.signage)}</div></div><div class="booth-display"><img class="booth-image" src="${window.escapeHtml(booth.imageUrl)}" onerror="this.src='${DEFAULT_IMAGE}';"><div class="status-badge"><span class="status-dot"></span> 幸運推薦</div></div><div class="booth-decor">${booth.decorIcon}</div><div class="booth-info"><div class="booth-title-wrap"><h3 class="booth-title">${window.escapeHtml(booth.title)}</h3></div><p class="booth-desc">${window.escapeHtml(booth.description)}</p></div><div class="booth-actions">${playBtnHTML}<button class="booth-btn btn-notes" onclick="window.openNotesModal('${booth.id}'); window.closeFocusOverlay();">📝 了解更多</button></div>`;
             wrapper.appendChild(card); overlay.classList.add('active');
         }
         function closeFocusOverlay() { document.getElementById('focusOverlay').classList.remove('active'); }
-        document.getElementById("btnOpenWheel").addEventListener("click", () => { openWheelModal(); });
+        
+        // 點擊事件由 DOM 安全性偵測，確保在動態網頁容器內正常初始化
+        function safeBindEvents() {
+            const openWheelBtn = document.getElementById("btnOpenWheel");
+            if (openWheelBtn) {
+                openWheelBtn.addEventListener("click", () => { window.openWheelModal(); });
+            }
+        }
 
         const AudioAmbientModule = {
             audioCtx: null, isMuted: false,
@@ -1369,28 +1598,35 @@
             initContext() { if (!this.audioCtx) this.audioCtx = new (window.AudioContext || window.webkitAudioContext)(); },
             playTone(frequency, type, duration) {
                 if (this.isMuted) return;
+                this.initContext();
+                if (!this.audioCtx) return;
                 try {
-                    this.initContext(); const osc = this.audioCtx.createOscillator(); const gain = this.audioCtx.createGain();
-                    osc.type = type || "sine"; osc.frequency.setValueAtTime(frequency, this.audioCtx.currentTime);
-                    gain.gain.setValueAtTime(0.08, this.audioCtx.currentTime); gain.gain.exponentialRampToValueAtTime(0.001, this.audioCtx.currentTime + duration);
-                    osc.connect(gain); gain.connect(this.audioCtx.destination); osc.start(); osc.stop(this.audioCtx.currentTime + duration);
-                } catch (e) { }
+                    const osc = this.audioCtx.createOscillator();
+                    const gainNode = this.audioCtx.createGain();
+                    osc.type = type || "sine";
+                    osc.frequency.value = frequency;
+                    gainNode.gain.setValueAtTime(duration || 0.1, this.audioCtx.currentTime);
+                    gainNode.gain.exponentialRampToValueAtTime(0.0001, this.audioCtx.currentTime + 1);
+                    osc.connect(gainNode);
+                    gainNode.connect(this.audioCtx.destination);
+                    osc.start();
+                    osc.stop(this.audioCtx.currentTime + 1);
+                } catch (e) {}
             },
-            triggerThemeSound() {
-                if (this.isMuted) return; this.initContext(); const currentTheme = document.body.className;
-                if (currentTheme.includes('y3k') || currentTheme.includes('tactical') || currentTheme.includes('fintech')) { this.playTone(300, "sawtooth", 0.1); setTimeout(() => this.playTone(600, "sawtooth", 0.15), 80); } 
-                else if (currentTheme.includes('pixel') || currentTheme.includes('manga') || currentTheme.includes('editorial')) { this.playTone(523.25, "square", 0.12); setTimeout(() => this.playTone(659.25, "square", 0.15), 100); } 
-                else { this.playTone(261.63, "sine", 0.2); setTimeout(() => this.playTone(329.63, "sine", 0.2), 100); setTimeout(() => this.playTone(392.00, "sine", 0.3), 200); }
-            },
-            playVictoryMelody() { if (this.isMuted) return; [523.25, 659.25, 783.99, 1046.50].forEach((freq, index) => { setTimeout(() => { this.playTone(freq, "triangle", 0.4); }, index * 200); }); }
+            triggerThemeSound() { this.playTone(440, "triangle", 0.1); },
+            playVictoryMelody() {
+                setTimeout(() => this.playTone(523.25, "sine", 0.1), 0);
+                setTimeout(() => this.playTone(659.25, "sine", 0.1), 150);
+                setTimeout(() => this.playTone(783.99, "sine", 0.2), 300);
+                setTimeout(() => this.playTone(1046.50, "sine", 0.4), 450);
+            }
         };
 
-        const TEACHER_MUSIC_URL = "音樂.mp3";   
         const MusicModule = {
             mode: null, isPlaying: false, audioEl: null, genCtx: null, genTimer: null, genGain: null,
             init() {
                 const btn = document.getElementById("btnMusicToggle"); if (!btn) return;
-                this.mode = (TEACHER_MUSIC_URL && TEACHER_MUSIC_URL.trim()) ? "file" : "generate";
+                this.mode = (typeof TEACHER_MUSIC_URL !== "undefined" && TEACHER_MUSIC_URL.trim()) ? "file" : "generate";
                 if (this.mode === "file") { this.audioEl = new Audio(TEACHER_MUSIC_URL.trim()); this.audioEl.loop = true; this.audioEl.volume = 0.35; }
                 btn.addEventListener("click", () => this.toggle(btn));
             },
@@ -1425,7 +1661,7 @@
         function renderBooths(boothsData) {
             const gridContainer = document.getElementById("boothExhibitionGrid"); if (!gridContainer) return;
             gridContainer.innerHTML = "";
-            const visibleBooths = boothsData.filter(booth => booth.isVisible !== false || isMyBooth(booth.id));
+            const visibleBooths = boothsData.filter(booth => booth.isVisible !== false || window.isMyBooth(booth.id));
             if (visibleBooths.length === 0) { gridContainer.innerHTML = `<div class="empty-state"><div class="empty-state-icon">🔍</div><h3>沒有找到相符的攤位</h3><p style="margin-top: 8px;">試著清除關鍵字，或是選擇其他分類看看！</p></div>`; return; }
 
             visibleBooths.forEach(booth => {
@@ -1436,9 +1672,9 @@
                 const isHidden = (booth.isVisible === false);
                 if (isHidden) { card.style.opacity = "0.6"; card.style.filter = "grayscale(0.4)"; }
 
-                const tagsHTML = (booth.tags || []).map(tag => `<span class="tag-badge">#${escapeHtml(tag)}</span>`).join("");
-                const urlCheck = validateAndNormalizeUrl(booth.gameUrl);
-                const playBtnHTML = urlCheck.isValid ? `<button class="booth-btn btn-game" onclick="recordVisit('${booth.id}', '${urlCheck.normalizedUrl}')">🎮 官方網站/體驗連結</button>` : `<span class="booth-btn" style="background-color: #d1d5db !important; border-color: #cbd5e1 !important; color: #64748b !important; cursor: not-allowed; text-decoration: none;" title="網址目前無效">⚠️ 連結維護中</span>`;
+                const tagsHTML = (booth.tags || []).map(tag => `<span class="tag-badge">#${window.escapeHtml(tag)}</span>`).join("");
+                const urlCheck = window.validateAndNormalizeUrl(booth.gameUrl);
+                const playBtnHTML = urlCheck.isValid ? `<button class="booth-btn btn-game" onclick="window.recordVisit('${booth.id}', '${urlCheck.normalizedUrl}')">🎮 官方網站/體驗連結</button>` : `<span class="booth-btn" style="background-color: #d1d5db !important; border-color: #cbd5e1 !important; color: #64748b !important; cursor: not-allowed; text-decoration: none;" title="網址目前無效">⚠️ 連結維護中</span>`;
 
                 /* 完美讓攤位自訂重點色同時影響按鈕與卡片背景漸層 */
                 if (booth.accent) {
@@ -1447,28 +1683,28 @@
                     card.style.setProperty('--card-custom-bg', `linear-gradient(135deg, var(--bg-surface) 40%, ${booth.accent}33 100%)`);
                 }
 
-                const authorsText = (booth.authors && booth.authors.length) ? booth.authors.map(a => escapeHtml(a)).join('、') : '匿名';
-                const avgRating = getAvgRating(booth.comments);
+                const authorsText = (booth.authors && booth.authors.length) ? booth.authors.map(a => window.escapeHtml(a)).join('、') : '匿名';
+                const avgRating = window.getAvgRating(booth.comments);
                 const isLikedByMe = false; // 若未來接上 Firebase Auth 可判斷是否按過讚
 
                 card.innerHTML = `
-                    <div class="booth-edit-btn" title="編輯設定（需 PIN）" onclick="handleEditClick(event, '${booth.id}')">⚙️</div>
-                    <div class="booth-awning"><div class="booth-signage">${escapeHtml(booth.signage || '未命名')}</div></div>
-                    <div class="booth-display"><img class="booth-image" src="${escapeHtml(booth.imageUrl)}" onerror="this.src='${DEFAULT_IMAGE}';"><div class="status-badge"><span class="status-dot"></span> ${isHidden ? '🙈 收起來' : '互動中'}</div></div>
+                    <div class="booth-edit-btn" title="編輯設定（需 PIN）" onclick="window.handleEditClick(event, '${booth.id}')">⚙️</div>
+                    <div class="booth-awning"><div class="booth-signage">${window.escapeHtml(booth.signage || '未命名')}</div></div>
+                    <div class="booth-display"><img class="booth-image" src="${window.escapeHtml(booth.imageUrl)}" onerror="this.src='${DEFAULT_IMAGE}';"><div class="status-badge"><span class="status-dot"></span> ${isHidden ? '🙈 收起來' : '互動中'}</div></div>
                     <div class="booth-decor" title="領域圖標">${booth.decorIcon || '🎪'}</div>
-                    <div class="booth-info"><div class="booth-title-wrap"><h3 class="booth-title">${escapeHtml(booth.title)}</h3><div class="tag-group">${tagsHTML}</div></div><div class="booth-authors" style="font-size:0.8rem; color:var(--text-secondary); margin:2px 0 6px; font-weight:600;">🧑‍🎨 ${authorsText}</div><p class="booth-desc" title="${escapeHtml(booth.description)}">${escapeHtml(booth.description)}</p></div>
+                    <div class="booth-info"><div class="booth-title-wrap"><h3 class="booth-title">${window.escapeHtml(booth.title)}</h3><div class="tag-group">${tagsHTML}</div></div><div class="booth-authors" style="font-size:0.8rem; color:var(--text-secondary); margin:2px 0 6px; font-weight:600;">🧑‍🎨 ${authorsText}</div><p class="booth-desc" title="${window.escapeHtml(booth.description)}">${window.escapeHtml(booth.description)}</p></div>
                     
                     <!-- 新增：專屬數據統計列 -->
                     <div class="booth-stats">
                         <div class="stat-item" title="累積造訪人次">👁️ <span class="visit-count">${booth.visits || 0}</span></div>
-                        <div class="stat-item clickable" onclick="likeBooth(event, '${booth.id}')" title="點擊給予愛心！">
+                        <div class="stat-item clickable" onclick="window.likeBooth(event, '${booth.id}')" title="點擊給予愛心！">
                             <span class="heart-icon ${isLikedByMe ? 'liked' : ''}">❤️</span> <span class="like-count">${booth.likes || 0}</span>
                         </div>
                         <div class="stat-item" title="留言總數">💬 <span>${(booth.comments || []).length}</span></div>
                         <div class="stat-item" title="玩家平均評分">⭐ <span>${avgRating}</span></div>
                     </div>
 
-                    <div class="booth-actions">${playBtnHTML}<button class="booth-btn btn-notes" onclick="openNotesModal('${booth.id}')">📝 合作日誌</button></div>
+                    <div class="booth-actions">${playBtnHTML}<button class="booth-btn btn-notes" onclick="window.openNotesModal('${booth.id}')">📝 合作日誌</button></div>
                 `;
                 gridContainer.appendChild(card);
             });
@@ -1484,8 +1720,8 @@
         function openGameModal(boothId) {
             currentActiveBooth = boothsData.find(b => b.id === boothId); if (!currentActiveBooth) return;
             document.getElementById("gameModalTitle").innerText = `【${currentActiveBooth.title}】互動櫃檯`;
-            initRating('game');
-            AudioAmbientModule.triggerThemeSound(); GuestbookModule.renderComments(currentActiveBooth); openModal("gameModal");
+            window.initRating('game');
+            AudioAmbientModule.triggerThemeSound(); GuestbookModule.renderComments(currentActiveBooth); window.openModal("gameModal");
         }
 
         function openNotesModal(boothId) {
@@ -1494,23 +1730,15 @@
             document.getElementById("aiNoteIdea").innerText = currentActiveBooth.aiNotes.idea || "無紀錄";
             document.getElementById("aiNoteHelper").innerText = currentActiveBooth.aiNotes.helper || "無紀錄";
             document.getElementById("aiNoteSelf").innerText = currentActiveBooth.aiNotes.self || "無紀錄";
-            initRating('notes');
-            AudioAmbientModule.triggerThemeSound(); GuestbookModule.renderComments(currentActiveBooth); openModal("notesModal");
+            window.initRating('notes');
+            AudioAmbientModule.triggerThemeSound(); GuestbookModule.renderComments(currentActiveBooth); window.openModal("notesModal");
         }
-
-        document.getElementById("btnPlayGame").addEventListener("click", () => {
-            const wheel = document.getElementById("gameWheelMini"); const resultText = document.getElementById("gameResult");
-            if (!wheel || !resultText) return; resultText.innerText = "正在向宇宙發送祈願中..."; AudioAmbientModule.playTone(523.25, "sawtooth", 0.5); 
-            wheel.style.transform = `rotate(${Math.floor(Math.random() * 5) * 72 + 1440}deg)`;
-            setTimeout(() => {
-                const results = ["🔮 大吉！將有極佳緣分！", "✨ 中吉！推薦你嘗試沒看過的攤位！", "🎉 喜獲小禮！向攤主展示此畫面換取貼紙！", "🔥 熱血沸騰！激發你的靈感！"];
-                resultText.innerText = results[Math.floor(Math.random() * results.length)]; AudioAmbientModule.playTone(880, "sine", 0.2); 
-            }, 1500);
-        });
 
         function handleEditClick(event, boothId) {
             event.stopPropagation();
-            requireBoothPin(boothId, () => {
+            
+            // 將原本要執行的打開編輯視窗邏輯包裝起來
+            const editAction = () => {
                 const booth = boothsData.find(b => b.id === boothId); if (!booth) return;
                 document.getElementById('editBoothId').value = booth.id;
                 document.getElementById('editTitle').value = booth.title || '';
@@ -1522,43 +1750,83 @@
                 document.getElementById('editGameUrl').value = booth.gameUrl || '';
                 const visVal = (booth.isVisible === false) ? 'hide' : 'show';
                 document.querySelectorAll('input[name="editVisible"]').forEach(r => { r.checked = (r.value === visVal); });
-                addMyBooth(booth.id); hideFormError('editGameUrl'); openModal('editBoothModal');
-            });
+                
+                // 管理員紀錄區塊顯示邏輯
+                const logSection = document.getElementById('adminLogSection');
+                const logList = document.getElementById('adminLogList');
+                if (isAdmin) {
+                    logSection.style.display = 'block';
+                    const logs = booth.editLogs || [];
+                    if (logs.length > 0) {
+                        logList.innerHTML = logs.map(l => `<div style="margin-bottom:6px; border-bottom:1px solid var(--border-color); padding-bottom:4px;">[${l.time}] <b>${window.escapeHtml(l.action)}</b></div>`).join('');
+                    } else {
+                        logList.innerHTML = '<div>目前無異動紀錄。</div>';
+                    }
+                } else {
+                    logSection.style.display = 'none';
+                }
+
+                window.addMyBooth(booth.id); window.hideFormError('editGameUrl'); window.openModal('editBoothModal');
+            };
+
+            // 判斷是否為管理員
+            if (isAdmin) {
+                editAction(); // 管理員直接放行，不需 PIN 碼
+            } else {
+                window.requireBoothPin(boothId, editAction); // 一般使用者需驗證 PIN 碼
+            }
         }
 
         async function saveEditBooth(event) {
             event.preventDefault(); const boothId = document.getElementById('editBoothId').value;
-            const urlCheck = validateAndNormalizeUrl(document.getElementById('editGameUrl').value.trim());
-            if (!urlCheck.isValid) { showFormError("editGameUrl", "❌ 網址格式不正確！"); return; } hideFormError("editGameUrl");
+            const urlCheck = window.validateAndNormalizeUrl(document.getElementById('editGameUrl').value.trim());
+            if (!urlCheck.isValid) { window.showFormError("editGameUrl", "❌ 網址格式不正確！"); return; } window.hideFormError("editGameUrl");
             const boothIndex = boothsData.findIndex(b => b.id === boothId); if (boothIndex === -1) return;
+            
+            // 寫入編輯紀錄
+            boothsData[boothIndex].editLogs = boothsData[boothIndex].editLogs || [];
+            const actionStr = isAdmin ? "管理員強制修改設定" : "攤主修改攤位資料";
+            boothsData[boothIndex].editLogs.unshift({ time: window.getCurrentTimeFormatted(), action: actionStr });
+
             const updated = {
                 title: document.getElementById('editTitle').value.trim() || boothsData[boothIndex].title,
                 authors: document.getElementById('editAuthors').value.split(',').map(s => s.trim()).filter(Boolean),
                 description: document.getElementById('editDesc').value.trim(), accent: document.getElementById('editAccent').value,
                 imageUrl: document.getElementById('editImage2').value.trim() || DEFAULT_IMAGE,
                 themeClass: document.getElementById('editTheme').value, gameUrl: urlCheck.normalizedUrl,
-                isVisible: (document.querySelector('input[name="editVisible"]:checked') || {}).value !== 'hide'
+                isVisible: (document.querySelector('input[name="editVisible"]:checked') || {}).value !== 'hide',
+                editLogs: boothsData[boothIndex].editLogs
             };
             Object.assign(boothsData[boothIndex], updated);
-            if (FIREBASE_READY) { try { await db.collection("booths").doc(boothId).update(updated); } catch (e) { alert("雲端儲存失敗。"); } }
-            closeModal('editBoothModal'); FilterEngine.filterAndRenderWithDelay(); AudioAmbientModule.playTone(1046.50, "sine", 0.3);
+            if (FIREBASE_READY) { try { await db.collection("booths").doc(boothId).update(updated); } catch (e) { await window.MomoDialog.alert("雲端儲存失敗。"); } }
+            window.closeModal('editBoothModal'); FilterEngine.filterAndRenderWithDelay(); AudioAmbientModule.playTone(1046.50, "sine", 0.3);
         }
 
         async function deleteBooth() {
             const boothId = document.getElementById('editBoothId').value; if (!boothId) return;
-            if (!confirm("確定要刪除這個攤位嗎？刪除後無法復原。")) return;
+            // 🌟 採用自訂的非同步對話框確認
+            const confirmDelete = await window.MomoDialog.confirm("確定要強制撤銷（刪除）這個攤位嗎？此動作將無法還原。", "🗑️ 強制撤銷確認");
+            if (!confirmDelete) return;
+            
             boothsData = boothsData.filter(b => b.id !== boothId);
             if (FIREBASE_READY) { try { await db.collection("booths").doc(boothId).delete(); } catch (e) { } }
-            closeModal('editBoothModal'); FilterEngine.generateTagCloud(); FilterEngine.filterAndRenderWithDelay(); AudioAmbientModule.playTone(330, "sine", 0.3);
+            window.closeModal('editBoothModal'); FilterEngine.generateTagCloud(); FilterEngine.filterAndRenderWithDelay(); AudioAmbientModule.playTone(330, "sine", 0.3);
         }
 
         async function handleLocalUpload(event) {
             event.preventDefault();
-            const urlCheck = validateAndNormalizeUrl(document.getElementById("newGameUrl").value.trim());
-            if (!urlCheck.isValid) { showFormError("newGameUrl", "❌ 網址格式不正確！"); return; } hideFormError("newGameUrl");
-            const pin = document.getElementById("newPin").value.trim(); if (!/^\d{4}$/.test(pin)) { alert("請設定 4 位數字的 PIN 密碼。"); return; }
+            const urlCheck = window.validateAndNormalizeUrl(document.getElementById("newGameUrl").value.trim());
+            if (!urlCheck.isValid) { window.showFormError("newGameUrl", "❌ 網址格式不正確！"); return; } window.hideFormError("newGameUrl");
+            const pin = document.getElementById("newPin").value.trim(); 
+            if (!/^\d{4}$/.test(pin)) { 
+                await window.MomoDialog.alert("請設定 4 位數字的 PIN 密碼作為此攤位的修改憑證。", "⚠️ 格式不合"); 
+                return; 
+            }
             const newTitleFp = document.getElementById("newTitle").value.trim();
-            if (boothsData.find(b => (b.title || "").trim() === newTitleFp)) { if (!confirm(`已經有一個叫「${newTitleFp}」的攤位了。\n確定還要再建立一個同名的嗎？`)) return; }
+            if (boothsData.find(b => (b.title || "").trim() === newTitleFp)) { 
+                const proceed = await window.MomoDialog.confirm(`已經有一個叫「${newTitleFp}」的攤位了。\n確定還要再建立一個同名的嗎？`, "🎪 重複名稱警示");
+                if (!proceed) return; 
+            }
             const tagsInput = document.getElementById("newTags").value; const authors = document.getElementById("newAuthors").value.split(",").map(s => s.trim()).filter(Boolean);
             const newBooth = {
                 title: document.getElementById("newTitle").value.trim(), signage: document.getElementById("newSignage").value.trim(),
@@ -1568,11 +1836,12 @@
                 accent: document.getElementById("newAccent").value, gameUrl: urlCheck.normalizedUrl, pin: pin, likes: 0, visits: 0, isVisible: true, comments: [],
                 themeClass: "theme-apple-glass", 
                 aiNotes: { idea: document.getElementById("newAiIdea").value.trim(), helper: document.getElementById("newAiHelper").value.trim(), self: document.getElementById("newAiSelf").value.trim() },
-                createdAt: Date.now()
+                createdAt: Date.now(),
+                editLogs: [{ time: window.getCurrentTimeFormatted(), action: "攤位初次建立" }]
             };
             let newId = `local-booth-${Date.now()}`;
-            if (FIREBASE_READY) { try { const ref = await db.collection("booths").add(newBooth); newId = ref.id; } catch (e) { alert("雲端儲存失敗，暫時存在本機。"); } }
-            addMyBooth(newId); boothsData.unshift({ id: newId, ...newBooth });
+            if (FIREBASE_READY) { try { const ref = await db.collection("booths").add(newBooth); newId = ref.id; } catch (e) { await window.MomoDialog.alert("雲端儲存失敗，已改為暫存於本機瀏覽器。", "⚠️ 連線限制"); } }
+            window.addMyBooth(newId); boothsData.unshift({ id: newId, ...newBooth });
             FilterEngine.generateTagCloud(); FilterEngine.filterAndRenderWithDelay();
             
             // 加入上架廣播
@@ -1582,18 +1851,67 @@
             }
 
             document.getElementById("uploadBoothForm").reset(); document.getElementById("newAccent").value = "#3B82F6";
-            closeModal("uploadModal"); window.scrollTo({ top: 0, behavior: 'smooth' }); AudioAmbientModule.playTone(1046.50, "sine", 0.4);
+            window.closeModal("uploadModal"); window.scrollTo({ top: 0, behavior: 'smooth' }); AudioAmbientModule.playTone(1046.50, "sine", 0.4);
         }
 
         document.getElementById("globalThemeController").addEventListener("change", (e) => {
             document.body.className = e.target.value; AudioAmbientModule.triggerThemeSound(); 
         });
 
-        window.addEventListener("DOMContentLoaded", async () => {
-            MarqueeModule.init(); LiveConnectionModule.init(); AudioAmbientModule.init(); MusicModule.init();
-            if (typeof FROZEN_BOOTHS !== "undefined") { const upBtn = document.getElementById("btnOpenUploadModal"); if (upBtn) upBtn.style.display = "none"; }
+        // 🌟 核心修復：將所有供 HTML 標籤內 (onclick/onsubmit) 呼叫的函式，手動綁定到 window 全域物件上。
+        // 這能徹底解決在 Canvas 等高度安全沙盒環境中，模組變數無法被行內腳本讀取所導致的 ReferenceError 問題。
+        window.MomoDialog = MomoDialog;
+        window.openUploadFlow = openUploadFlow;
+        window.requireBoothPin = requireBoothPin;
+        window.verifyPin = verifyPin;
+        window.cancelPinModal = cancelPinModal;
+        window.likeBooth = likeBooth;
+        window.recordVisit = recordVisit;
+        window.setRating = setRating;
+        window.submitComment = submitComment;
+        window.openWheelModal = openWheelModal;
+        window.closeWheelModal = closeWheelModal;
+        window.spinWheel = spinWheel;
+        window.showFocusedBooth = showFocusedBooth;
+        window.closeFocusOverlay = closeFocusOverlay;
+        window.openModal = openModal;
+        window.closeModal = closeModal;
+        window.openGameModal = openGameModal;
+        window.openNotesModal = openNotesModal;
+        window.handleEditClick = handleEditClick;
+        window.saveEditBooth = saveEditBooth;
+        window.deleteBooth = deleteBooth;
+        window.handleLocalUpload = handleLocalUpload;
+        window.getCurrentTimeFormatted = getCurrentTimeFormatted;
+        window.validateAndNormalizeUrl = validateAndNormalizeUrl;
+        window.showFormError = showFormError;
+        window.hideFormError = hideFormError;
+        window.escapeHtml = escapeHtml;
+        window.getMyBooths = getMyBooths;
+        window.addMyBooth = addMyBooth;
+        window.isMyBooth = isMyBooth;
+        window.loadBooths = loadBooths;
+        window.freezeToStaticVersion = freezeToStaticVersion;
+        window.initRating = initRating;
+        window.getAvgRating = getAvgRating;
+        window.drawWheel = drawWheel;
+        window.renderBooths = renderBooths;
+
+        // 全域初始化函式，適用於所有的 DOM 載入時間點
+        async function runInitialization() {
+            MarqueeModule.init(); 
+            LiveConnectionModule.init(); 
+            AudioAmbientModule.init(); 
+            MusicModule.init();
+            initInputHandlers();
+            safeBindEvents();
+
+            if (typeof FROZEN_BOOTHS !== "undefined") { 
+                const upBtn = document.getElementById("btnOpenUploadModal"); 
+                if (upBtn) upBtn.style.display = "none"; 
+            }
             LoaderModule.showSkeletons(3); 
-            await loadBooths();            
+            await window.loadBooths();            
             
             // 動態更新快訊為最新上架的遊戲
             if (boothsData.length > 0) {
@@ -1602,8 +1920,15 @@
             }
 
             FilterEngine.init(); 
-            renderBooths(boothsData);
-        });
+            window.renderBooths(boothsData);
+        }
+
+        // 當 DOM 狀態安全時，即刻呼叫初始化
+        if (document.readyState === "loading") {
+            window.addEventListener("DOMContentLoaded", runInitialization);
+        } else {
+            runInitialization();
+        }
     </script>
 </body>
 </html>
